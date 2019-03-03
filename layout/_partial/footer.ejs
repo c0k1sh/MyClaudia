@@ -1,0 +1,26 @@
+<style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        Copyright ©  <a href="https://github.com/c0k1sh/c0k1sh.github.io" target="_blank"><%= config.author || config.title %></a> <%= date(new Date(), 'YYYY') %>
+        <br>
+        <%= __('powered_by') %> <a href="https://hexo.io/zh-cn/" target="_blank">Hexo</a>  <a href="https://github.com/Haojen/hexo-theme-Claudia" target="_blank"> theme</a>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+<%- js('js/search_core')%>
+<%- js('js/script')%>

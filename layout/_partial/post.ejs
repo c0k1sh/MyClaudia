@@ -1,0 +1,115 @@
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 60px 2% 0px 2%;
+        min-height: 80vh;
+        margin-top: -200px;
+        margin-bottom: 20px;      
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+      /*  font-family: Noto Sans SC, sans-serif;*/
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong><%- post.title || 'Null'%></strong>
+            </h1>
+            <% if (post.subtitle) {%>
+                <h2><%- post.subtitle%></h2>
+            <%}%>
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="<%- theme.user_avatar %>">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> <%- theme.user_name%></span>
+                <span class="post-date sub-title">at: <%= post.date.format(config.date_format) %></span>
+            </div>
+            <% if(post.tags){%>
+                <div>
+                    <% post.tags.forEach(function(tag){%>
+                         <a class="tag is-post-tag" href="<%- config.root + tag.path %>"><%- tag.name %></a>
+                    <%})%>
+                </div>
+            <%}%>
+        </div>
+        <div class="content" style="overflow: auto">
+            <%- post.content %>
+        </div>
+        <div class="post-reply">
+                <!-- Valine评论系统 -->
+            <% if (theme.valine && theme.valine.appid && theme.valine.appkey){ %>
+            <section id="comments" class="comments">
+              <style>
+                .comments{margin:30px;padding:10px;background:#fff}
+                @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+              </style>
+
+<!--
+              <%- partial('post/valine', {
+                key: post.slug,
+                title: post.title,
+                url: config.url+url_for(post.path)
+                }) %>
+-->
+              </section>
+
+
+                            <div id="vcomment" class="comment"></div>
+                            <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+                            <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+                            <script>
+                               var notify = '<%= theme.valine.notify %>' == true ? true : false;
+                               var verify = '<%= theme.valine.verify %>' == true ? true : false;
+                                window.onload = function() {
+                                    new Valine({
+                                        el: '.comment',
+                                        notify: notify,
+                                        verify: verify,
+                                        app_id: "<%= theme.valine.appid %>",
+                                        app_key: "<%= theme.valine.appkey %>",
+                                        placeholder: "<%= theme.valine.placeholder %>",
+                                        avatar:"<%= theme.valine.avatar %>"
+                                    });
+                                }
+                            </script>
+
+                          <% } %>
+                      </div>
+                  </div>
+
+
+
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+
+    if (img) {
+        var header_box = document.querySelector('#header_box')
+        header_box.style.backgroundImage = 'url('+ img.src +')'
+    }
+</script>

@@ -1,0 +1,67 @@
+# Header
+menu:
+  Home: /
+  #archives: /archives
+  #My Works: /works
+  tags: /tags
+  About: /about
+
+
+rss: /atom.xml
+
+# User Info
+user_name: ckliu
+user_avatar: http://wx4.sinaimg.cn/large/e4152a52ly8fopiue26znj20ro0roq4p.jpg
+user_location: 北京
+user_description: "Stay Hungry Stay Foolish"
+user_contact: ckliu66@qq.com
+user_introduction: Stay Hungry Stay Foolish
+
+github_username: c0k1sh
+twitter_username:
+weibo_username: 520135213
+zhihu_username:
+facebook_username:
+linkedin_username:
+
+# Content
+excerpt_link: Read More
+fancybox: true
+
+# display widgets at the bottom of index pages (pagination == 2)
+#index_widgets: true
+# - category
+# - tagcloud
+# - archive
+
+# widget behavior
+#archive_type: 'monthly'
+#how_count: false
+
+# 评论系统
+# 不要用别人的 uid, 自己去注册一个吧
+use_livere: false
+livere_uid: MTAyMC80MTU0MS8xODA4OA==
+
+use_disqus: false
+disqus_url: http://disqus.com/by/disqus_QpoyCFeZR3
+
+
+valine:
+ appid: fA0hA8NHyUfeQmMl88YEdk4X-gzGzoHsz
+ appkey: UT1u3mKKR4VN4yN1EVD1xD1t
+ verify: false #验证码
+ notify: false #评论回复提醒
+ avatar: mm #评论列表头像样式：''/mm/identicon/monsterid/wavatar/retro/hide
+ placeholder: Just go go #评论框占位符
+
+
+
+# Miscellaneous
+google_analytics: UA-130444024-1
+baidu_tongji: de49980294ebeb50e99b620c5824cbca
+favicon: /favicon.png
+#twitter:
+#google_plus:
+#fb_admins:
+#fb_app_id:
